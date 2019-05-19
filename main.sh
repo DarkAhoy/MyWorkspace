@@ -1,10 +1,10 @@
 #!/bin/bash
 
-function runFDiskWithDefaultConfig{
+function runFDiskWithDefaultConfig {
   ./createDisk.sh $1
 }
 
-function makeFileSystem{
+function makeFileSystem {
   swapLocation=1
   bootLocation=2
   rootLocation=3
@@ -27,11 +27,11 @@ function makeFileSystem{
   mount $1$bootLocation /mnt/boot
 }
 
-function installArch{
+function installArch {
   pacstrap /mnt base base-devel
 }
 
-function baseSetUp{
+function baseSetUp {
   genfstab -U /mnt >> /mnt/etc/fstab   
 
   #changing root to installed arch system

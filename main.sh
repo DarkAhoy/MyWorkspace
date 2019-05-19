@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function runFDiskWithDefaultConfig{
-  ./createDisk $1
+  ./createDisk.sh $1
 }
 
 function makeFileSystem{
@@ -15,9 +15,9 @@ function makeFileSystem{
   swapon $1$swapLocation
 
   #making file systems
-  mkfs.ex4 $1$bootLocation
-  mkfs.ex4 $1$rootLocation
-  mkfs.ex4 $1$homeLocation
+  mkfs.ext4 $1$bootLocation
+  mkfs.ext4 $1$rootLocation
+  mkfs.ext4 $1$homeLocation
 
   #mounting the file systems
   mount $1$bootLocation /mnt
@@ -32,6 +32,8 @@ function installArch{
 }
 
 function baseSetUp{
+  genfstab -U /mnt >> /mnt/etc/fstab   
+
   #changing root to installed arch system
   arch-chroot /mnt
   

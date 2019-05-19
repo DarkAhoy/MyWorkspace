@@ -13,6 +13,6 @@ systemctl enable NetworkManager
 ln -sf /usr/share/zoneinfo/Israel /etc/localtime
 
 #default language
-sed 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen #find a better way to do this
-sed 's/#en_US ISO-88591-1/en_US ISO-88591-1/' /etc/locale.gen
+sed 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen > /dev/null #find a better way to do this
+sed 's/#en_US ISO-88591-1/en_US ISO-88591-1/' /etc/locale.gen > /dev/null
 echo "LANG=US.UTF-8" > /etc/locale.conf

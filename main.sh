@@ -35,6 +35,7 @@ function baseSetUp {
   genfstab -U /mnt >> /mnt/etc/fstab   
 
   #changing root to installed arch system
+  cp basicConfig.sh /mnt
   arch-chroot /mnt ./basicConfig.sh $1
 }
 

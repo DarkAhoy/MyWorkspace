@@ -20,12 +20,7 @@ sed -e 's/\s*\([\+0-9a-zA-Z]*\).*/\1/' << EOF | fdisk $1
   p # primary partition
   3 # partiotion number 3
     # will start after [SWAP] partition
-  +25G # / patiotion wiil be 25G {CHANGE THIS IN ORDER TO MAKE ROOT BIGGER}
-  n #new partition
-  p # primary partition
-  4 # partiotion number 3
-    # will start after / partition wiil be /home
-    # will write until the end of the disk
+    # / patiotion wiil be s large as disk
   w # write the partition table
   q # and we're done
 EOF

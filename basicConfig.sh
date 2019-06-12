@@ -1,5 +1,8 @@
 #!bin/bash
 
+#first things first, Updating
+pacman --noconfirm -Syu
+
 #installing grub
 pacman -S --noconfirm grub
 grub-install --target=i386-pc $1

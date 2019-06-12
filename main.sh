@@ -32,6 +32,7 @@ function installArch {
 }
 
 function baseSetUp {
+  #generating fstab using the UID of the disk
   genfstab -U /mnt >> /mnt/etc/fstab   
 
   #changing root to installed arch system

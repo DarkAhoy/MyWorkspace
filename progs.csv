@@ -1,0 +1,9 @@
+#TAG,NAME IN REPO (or git url),PURPOSE (should be a verb phrase to sound right while installing)
+,i3-gaps,"is the main graphical user interface and window manager."
+,xorg-server,"is the graphical server."
+,xorg-xwininfo,"allows querying information about windows."
+,xorg-xinit,"starts the graphical server."
+,xorg-xprop,"is a tool for detecting window properties."
+,ttf-dejavu,"fonts for the system"
+,tree,"lists directory contents like trees. Used by vifm."
+,vifm,"is an extensive terminal file manager that everyone likes."

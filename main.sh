@@ -21,8 +21,6 @@ function makeFileSystem {
 
   #mounting the file systems
   mount $1$bootLocation /mnt
-  mkdir /mnt/home
-  mount $1$homeLocation /mnt/home
   mkdir /mnt/boot
   mount $1$bootLocation /mnt/boot
 }

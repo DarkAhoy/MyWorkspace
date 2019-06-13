@@ -25,9 +25,8 @@ useradd -m -g wheel -s /bin/bash amos
 usermod -a -G wheel amos && mkdir -p /home/amos && chown amos:wheel /home/amos
 echo amos:Amos1991 | chpasswd
 
-#change the user permissions
+#change users permissions
+sed 's/# %wheel ALL+(ALL) ALL/%wheel ALL+(ALL) ALL/' /etc/sudoers > /dev/null
 
-
-#creating a default xorg config
-#TODO: install all progs before creating the config files
-# Xorg :0 -configure
+#reboot
+reboot now

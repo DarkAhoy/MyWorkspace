@@ -1,0 +1,80 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/home/amos/
+	..
+1560603370
+'b
+	/home/amos/bin/
+	..
+1560603370
+'h
+	/home/amos/
+	..
+1560603370
+'z
+	/home/amos/.config/vifm
+	..
+1560603370
+
+# Bookmarks:
+
+# TUI:
+al
+q0
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/amos
+	..
+0
+d/home
+	amos
+1
+d/home/amos
+	..
+0
+d/home
+	amos
+1
+d/home/amos
+	xorg.conf.new
+3
+d
+
+# Right window history (oldest to newest):
+D/home/amos
+	..
+0
+D
+
+# Command line history (oldest to newest):
+:q
+
+# Search history (oldest to newest):
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+
+# State:
+f
+i1
+[.1
+[F
+F
+I1
+].1
+]F
+s0

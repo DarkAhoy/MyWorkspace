@@ -8,7 +8,8 @@ pipinstall() { \
 	}
 
 maininstall() { # Installs all needed programs from main repo.
-	pacman --noconfirm --needed -S "$1" >/dev/null 2>&1
+	echo "installing $1"
+	pacman --noconfirm -S "$1" 
 }
 
 aurinstall() { \
@@ -26,9 +27,10 @@ gitmakeinstall() {
 
 
 installationloop() { \
-	([ -f "$progsfile" ] && cp "$progsfile" /tmp/progs.csv) | sed '/^#/d' > /tmp/progs.csv
-	total=$(wc -l < /tmp/progs.csv)
-	aurinstalled=$(pacman -Qm | awk '{print $1}')
+	echo "$progsfile"
+	([ -f "$progsfile" ] && cp "$progsfile" progs_temp.csv) | sed '/^#/d' > progs_temp.csv
+	total=$(wc -l < progs_temp.csv)
+	echo "$total programs to install" 
 	while IFS=, read -r tag program comment; do
 		n=$((n+1))
 		echo "$comment" | grep "^\".*\"$" >/dev/null 2>&1 && comment="$(echo "$comment" | sed "s/\(^\"\|\"$\)//g")"
@@ -38,7 +40,8 @@ installationloop() { \
 			"G") gitmakeinstall "$program" "$comment" ;;
 			"P") pipinstall "$program" "$comment" ;;
 		esac
-	done < /tmp/progs.csv ;}
+	done < progs_temp.csv
+	rm progs_temp.csv ;}
 
 
 #change the user permissions only for the install process

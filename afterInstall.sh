@@ -44,7 +44,7 @@ installationloop() { \
 	rm progs_temp.csv ;}
 
 copyDotFiles(){
-  sudo cp -r dotFiles/.* ~/
+  sudo cp -r dotFiles/* ~/
 }
 
 #change the user permissions only for the install process

@@ -43,12 +43,22 @@ installationloop() { \
 	done < progs_temp.csv
 	rm progs_temp.csv ;}
 
+copyDotFiles(){
+  sudo cp -r dotFiles/.* ~/
+}
 
 #change the user permissions only for the install process
 sed 's/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers > /dev/null
 
+
 #executes the main install loop
 installationloop
+
+#copying dotfiles into location
+copyDotFiles
+
+#change the default terminal
+sudo usermod -s /usr/local/bin/st amos
 
 #change the permissions back
 sed 's/%wheel ALL=(ALL) NOPASSWD: ALL/# %wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers > /dev/null

@@ -1,5 +1,7 @@
 URxvt.font: xft:DroidSansMono  
 URxvt.scrollBar:false
+URxvt.transparent:true
+URxvt.shading: 20
 
 ! special
 *.foreground:   #98d1ce

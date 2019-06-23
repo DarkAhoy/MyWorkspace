@@ -26,7 +26,7 @@ usermod -a -G wheel amos && mkdir -p /home/amos && chown amos:wheel /home/amos
 echo amos:Amos1991 | chpasswd
 
 #change users permissions
-sed 's/# %wheel ALL+(ALL) ALL/%wheel ALL+(ALL) ALL/' /etc/sudoers > /dev/null
+sed 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers > /dev/null
 
 #reboot
 reboot now

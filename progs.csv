@@ -10,3 +10,4 @@
 ,mlocate, "the locate and updatedb functions"
 ,rxvt-unicode,"the terminal emulator"
 ,feh,"the backgroud image setter"
+,ttf-droid,"the fonts! :)"

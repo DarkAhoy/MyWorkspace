@@ -8,3 +8,5 @@
 ,tree,"lists directory contents like trees. Used by vifm."
 ,vifm,"is an extensive terminal file manager that everyone likes."
 ,mlocate, "the locate and updatedb functions"
+,rxvt-unicode,"the terminal emulator"
+G,https://git.suckless.org/st,"the suckless terminal installation from git"

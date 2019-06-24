@@ -5,10 +5,9 @@ function runFDiskWithDefaultConfig {
 }
 
 function makeFileSystem {
-  swapLocation=1
-  bootLocation=2
+  swapLocation=2
+  bootLocation=1
   rootLocation=3
-  homeLocation=4
   
   #making swap
   mkswap $1$swapLocation
@@ -17,10 +16,9 @@ function makeFileSystem {
   #making file systems
   mkfs.ext4 $1$bootLocation
   mkfs.ext4 $1$rootLocation
-  mkfs.ext4 $1$homeLocation
 
   #mounting the file systems
-  mount $1$bootLocation /mnt
+  mount $1$rootLocation /mnt
   mkdir /mnt/boot
   mount $1$bootLocation /mnt/boot
 }

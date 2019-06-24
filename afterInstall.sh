@@ -48,7 +48,7 @@ copyDotFiles(){
 }
 
 #change the user permissions only for the install process
-sed 's/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers > /dev/null
+sed -i 's/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers > /dev/null
 
 
 #executes the main install loop
@@ -61,5 +61,5 @@ copyDotFiles
 sudo usermod -s /usr/local/bin/st amos
 
 #change the permissions back
-sed 's/%wheel ALL=(ALL) NOPASSWD: ALL/# %wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers > /dev/null
+sed -i 's/%wheel ALL=(ALL) NOPASSWD: ALL/# %wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers > /dev/null
 

@@ -18,7 +18,7 @@ function makeFileSystem {
   mkfs.ext4 $1$rootLocation
 
   #mounting the file systems
-  mount $1$root /mnt
+  mount $1$rootLocation /mnt
   mkdir /mnt/boot
   mount $1$bootLocation /mnt/boot
 }

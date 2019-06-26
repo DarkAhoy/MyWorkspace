@@ -16,8 +16,8 @@ systemctl enable NetworkManager
 ln -sf /usr/share/zoneinfo/Israel /etc/localtime
 
 #default language
-sed 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen > /dev/null #find a better way to do this
-sed 's/#en_US ISO-88591-1/en_US ISO-88591-1/' /etc/locale.gen > /dev/null
+sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen > /dev/null #find a better way to do this
+sed -i 's/#en_US ISO-88591-1/en_US ISO-88591-1/' /etc/locale.gen > /dev/null
 echo "LANG=US.UTF-8" > /etc/locale.conf
 
 #create a user
@@ -26,7 +26,7 @@ usermod -a -G wheel amos && mkdir -p /home/amos && chown amos:wheel /home/amos
 echo amos:Amos1991 | chpasswd
 
 #change users permissions
-sed 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers > /dev/null
+sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers > /dev/null
 
 #reboot
 reboot now

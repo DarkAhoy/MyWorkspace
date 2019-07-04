@@ -13,8 +13,7 @@ maininstall() { # Installs all needed programs from main repo.
 }
 
 aurinstall() { \
-	echo "$aurinstalled" | grep "^$1$" >/dev/null 2>&1 && return
-	sudo -u "$name" $aurhelper -S --noconfirm "$1" >/dev/null 2>&1
+	yaourt --noconfirm -S $1
 	}
 
 gitmakeinstall() {
@@ -25,6 +24,9 @@ gitmakeinstall() {
 	make install >/dev/null 2>&1
 	cd /tmp || return ;}
 
+scriptInstall() {
+	/bin/bash $1
+}
 
 installationloop() { \
 	echo "$progsfile"
@@ -39,16 +41,14 @@ installationloop() { \
 			"A") aurinstall "$program" "$comment" ;;
 			"G") gitmakeinstall "$program" "$comment" ;;
 			"P") pipinstall "$program" "$comment" ;;
+			"S") scriptInstall "$program" "$comment" ;;
 		esac
 	done < progs_temp.csv
 	rm progs_temp.csv ;}
 
 copyDotFiles(){
-  sudo cp -rT dotFiles ~/
+	cp -rT dotFiles ~/
 }
-
-#change the user permissions only for the install process
-sed -i 's/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers > /dev/null
 
 
 #executes the main install loop
@@ -57,9 +57,4 @@ installationloop
 #copying dotfiles into location
 copyDotFiles
 
-#change the default terminal
-sudo usermod -s /usr/local/bin/st amos
-
-#change the permissions back
-sed -i 's/%wheel ALL=(ALL) NOPASSWD: ALL/# %wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers > /dev/null
 

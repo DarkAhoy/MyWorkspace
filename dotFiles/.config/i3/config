@@ -20,6 +20,23 @@ bindsym $mod+Shift+b gaps inner current set 15; gaps outer current set 15
 
 # #-----------------# #
 
+
+# #---config screen---# #
+
+#exec --no-startup-id xrandr --output HDMI-1-1 --left-of eDP1 --auto
+
+#set $firstmonitor eDP1
+#set $secondmonitor HDMI-1-1
+
+# #-----------------# #
+
+
+# #---bar---# #
+
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# #--------# #
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -41,12 +58,6 @@ bindsym $mod+d exec dmenu_run
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -74,11 +85,6 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -163,11 +169,30 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3status
-}
-
 # #---default programs---# #
 bindsym $mod+x exec /usr/bin/chromium
+bindsym $mod+c exec $HOME/Work/tools/clion-2019.1.4/bin/clion.sh
+
+# #---locking screen---# #
+bindsym $mod+l exec /usr/bin/i3lock
+exec /usr/bin/xautolock -time 10 -locker '/usr/bin/i3lock'
+
+# #---language change---# #
+exec --no-startup-id /usr/bin/setxkbmap -option 'grp:alt_shit_toggle' us,il 
+
+# #---default laptop keys---# #
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+

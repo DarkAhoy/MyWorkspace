@@ -18,6 +18,7 @@
 ,libinput,"to make touch pad be natural"
 ,chromium,"default browser"
 ,ntp,"the time network protocol"
+,rofi,"the dmenu of my choice"
 S,installYaourt,"installing my choice of AUR helper"
 A,polybar,"the status bar"
 A,laptop-mode-tools,"laptop utils"

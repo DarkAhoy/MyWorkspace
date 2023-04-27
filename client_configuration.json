@@ -1,0 +1,43 @@
+{
+    "audio": "pulseaudio",
+    "bootloader": "grub-install",
+    "config_version": "2.5.6",
+    "debug": false,
+    "harddrives": [
+        "/dev/sda"
+    ],
+    "hostname": "Machine",
+    "mirror-region": {
+        "Israel": {
+            "http://archlinux.interhost.co.il/$repo/os/$arch": true,
+            "http://mirror.isoc.org.il/pub/archlinux/$repo/os/$arch": true,
+            "https://archlinux.interhost.co.il/$repo/os/$arch": true,
+            "https://archlinux.mivzakim.net/$repo/os/$arch": true,
+            "https://mirror.isoc.org.il/pub/archlinux/$repo/os/$arch": true
+        }
+    },
+    "nic": {
+        "dhcp": true,
+        "dns": null,
+        "gateway": null,
+        "iface": null,
+        "ip": null,
+        "type": "nm"
+    },
+    "no_pkg_lookups": false,
+    "offline": false,
+    "packages": [
+        "git",
+        "neovim"
+    ],
+    "profile": {
+        "path": "/usr/lib/python3.10/site-packages/archinstall/profiles/minimal.py"
+    },
+    "script": "guided",
+    "silent": false,
+    "swap": false,
+    "sys-encoding": "utf-8",
+    "sys-language": "en_US",
+    "timezone": "Asia/Jerusalem",
+    "version": "2.5.6"
+}

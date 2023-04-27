@@ -1,0 +1,16 @@
+- hosts: localhost 
+  gather_facts: false 
+  tasks: 
+    - name: install ssh key in location 
+      ansible.builtin.copy: 
+        content: '{{ ssh_key }}'
+        dest: '{{ lookup("env", "HOME") }}'
+
+    - name: clone private repo
+      ansible.builtin.git:
+        repo: git@github.com:DarkAhoy/dotfiles.git
+        dest: '{{ lookup("env","HOME") }}'
+    
+    - name: update arch install script
+      shell: python3 -m pip install --upgrade archinstall 
+
